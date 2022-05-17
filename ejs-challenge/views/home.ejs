@@ -1,0 +1,21 @@
+<%# Javascript needs to be inside EJS brackets %>
+<%# Especially when you want to retrieve the output of values from server side %>
+<%# Example: 'post.title' & 'post.content' %>
+
+<%- include('partials/header'); -%>
+
+<h1>Home</h1>
+<p> <%= startingContent %> </p>
+
+<%# looks through posts array and executes anonymous function 'forEach' %>
+<% posts.forEach(function(post){ %>
+
+<h1> <%=post.title%> </h1>
+<p> <%=post.content.substring(0,100) + " ..." %>
+<a href="/posts/<%=post.title%>">Read More</a>
+</p>
+
+<%})%>
+
+
+<%- include('partials/footer'); -%>
